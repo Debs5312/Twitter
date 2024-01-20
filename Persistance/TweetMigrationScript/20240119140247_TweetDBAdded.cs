@@ -1,13 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace Persistance.Migrations
+namespace Persistance.TweetMigrationScript
 {
     /// <inheritdoc />
-    public partial class TweetDBCreation : Migration
+    public partial class TweetDBAdded : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,9 +34,9 @@ namespace Persistance.Migrations
                 columns: new[] { "Id", "Category", "Date", "ImagePath", "Title", "Tweetcontext" },
                 values: new object[,]
                 {
-                    { new Guid("11d3d49b-4c7d-4f94-8669-4b9e5f821778"), "Geopilitics", new DateTime(2023, 9, 17, 18, 9, 29, 936, DateTimeKind.Local).AddTicks(8257), "S_Jaisankar.jpg", "Indian Forign Policy", "Indian foriegn minister S. Jaisankar build Indian Stature to global platform, ensuring Indian soft power." },
-                    { new Guid("32758eed-8e83-4872-a872-0e9a2bdc08f1"), "Sports", new DateTime(2024, 1, 17, 16, 9, 29, 936, DateTimeKind.Local).AddTicks(8260), "IPL.jpg", "Indian Cricket", "The IPL is the most-popular cricket league in the world; in 2014, it was ranked sixth by average attendance among all sports leagues.In 2010, the IPL became the first sporting event to be broadcast live on YouTube.Many domestic cricket and other sport's league started in India inspiring from the huge success of the IPL.The brand value of the league in 2022 was ₹90,038 crore (US$11 billion)." },
-                    { new Guid("d0a20312-533f-4c7d-88ce-92578ce71b1d"), "Economy", new DateTime(2023, 11, 17, 18, 9, 29, 936, DateTimeKind.Local).AddTicks(8234), "india.jpg", "Indian GDP", "Indian will be 3rd Largest in terms of nominal GDP aroung 2028" }
+                    { new Guid("094f926d-ad74-4141-8bb1-93c2771115b9"), "Economy", new DateTime(2023, 11, 19, 19, 32, 47, 165, DateTimeKind.Local).AddTicks(6438), "india.jpg", "Indian GDP", "Indian will be 3rd Largest in terms of nominal GDP aroung 2028" },
+                    { new Guid("e6597ae5-949f-4d80-93fb-91bc0e3f0097"), "Geopilitics", new DateTime(2023, 9, 19, 19, 32, 47, 165, DateTimeKind.Local).AddTicks(6456), "S_Jaisankar.jpg", "Indian Forign Policy", "Indian foriegn minister S. Jaisankar build Indian Stature to global platform, ensuring Indian soft power." },
+                    { new Guid("f9d9b9a2-262c-4702-8221-24e0457ec153"), "Sports", new DateTime(2024, 1, 19, 17, 32, 47, 165, DateTimeKind.Local).AddTicks(6458), "IPL.jpg", "Indian Cricket", "The IPL is the most-popular cricket league in the world; in 2014, it was ranked sixth by average attendance among all sports leagues.In 2010, the IPL became the first sporting event to be broadcast live on YouTube.Many domestic cricket and other sport's league started in India inspiring from the huge success of the IPL.The brand value of the league in 2022 was ₹90,038 crore (US$11 billion)." }
                 });
         }
 
