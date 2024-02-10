@@ -1,6 +1,10 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Model;
 using Persistance;
+using UserAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,15 +18,30 @@ builder.Services.AddDbContext<UserContext>(x => x.UseSqlServer(connection.Connec
 builder.Services.AddIdentityCore<AppUser>(opt => 
 {
   opt.Password.RequireNonAlphanumeric = false;
+  opt.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<UserContext>();
 
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["TokenKey"]));
 
-builder.Services.AddAuthentication();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt => 
+{
+  opt.TokenValidationParameters = new TokenValidationParameters
+  {
+    ValidateIssuerSigningKey = true,
+    IssuerSigningKey = key,
+    ValidateIssuer = false,
+    ValidateAudience = false
+  };
+
+});
+
+builder.Services.AddScoped<TokenService>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
