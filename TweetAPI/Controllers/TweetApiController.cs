@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Model.ProfileMapper;
 using TweetAPI.QueryCommandHandler;
 
 namespace TweetAPI.Controllers
 {
+    [AllowAnonymous]
     public class TweetApiController : BaseAPIController
     {
 
