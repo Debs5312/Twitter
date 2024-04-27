@@ -10,7 +10,7 @@ namespace Persistance
         public string ConnectionString { get; set; }
         public Connection()
         {
-            ConnectionString = "Server=LAPTOP-SP2T588K\\SQLEXPRESS;Database=TweetUserDB;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True";
+            ConnectionString = "Server=192.168.2.5,1433;database=TweetUserStore;UID=sa;PWD=Jyoti@1234;MultipleActiveResultSets=True;TrustServerCertificate=True";
         }
     }
 }
